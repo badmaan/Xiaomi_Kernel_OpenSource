@@ -16,6 +16,10 @@
 		qcom,mdss-dsi-panel-controller = <&mdss_dsi0>;
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
 		qcom,mdss-dsi-panel-framerate = <60>;
+		qcom,mdss-dsi-pan-enable-dynamic-fps;
+		qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode";
+		qcom,ulps-enabled;
+		qcom,partial-update-enabled;
 		qcom,mdss-dsi-virtual-channel-id = <0>;
 		qcom,mdss-dsi-stream = <0>;
 		qcom,mdss-dsi-panel-width = <1080>;
@@ -36,8 +40,8 @@
 		qcom,mdss-dsi-bpp = <24>;
 		qcom,mdss-dsi-underflow-color = <0xff>;
 		qcom,mdss-dsi-border-color = <0>;
-		qcom,mdss-dsi-h-sync-pulse = <0>;
-		qcom,mdss-dsi-traffic-mode = "burst_mode";
+		qcom,mdss-dsi-h-sync-pulse = <1>;
+		qcom,mdss-dsi-traffic-mode = "non_burst_sync_pulse";
 		qcom,mdss-dsi-bllp-eof-power-mode;
 		qcom,mdss-dsi-bllp-power-mode;
 		qcom,mdss-dsi-lane-0-state;
@@ -53,7 +57,7 @@
 		qcom,mdss-dsi-dma-trigger = "trigger_sw";
 		qcom,mdss-dsi-mdp-trigger = "none";
 		qcom,mdss-dsi-on-command = [
-				39 01 00 00 46 00 02 11 00
+				39 01 00 00 00 00 02 11 00
 				29 01 00 00 00 00 02 B0 04
 				29 01 00 00 00 00 02 D6 01
 				29 01 00 00 00 00 02 ea 0a
@@ -63,11 +67,11 @@
 				29 01 00 00 00 00 1A CE 55 40 56 6E 87 95 a0 b0 c0 c2 c9 ce df e3 e4 ec FF 04 00 00 04 46 04 69 5A
 				39 01 00 00 00 00 02 55 00
 				39 01 00 00 00 00 02 35 00
-				39 01 00 00 14 00 02 29 00
+				39 01 00 00 00 00 02 29 00
 		];
 		qcom,mdss-dsi-off-command = [
-				05 01 00 00 14 00 02 28 00
-				05 01 00 00 78 00 02 10 00
+				05 01 00 00 00 00 02 28 00
+				05 01 00 00 00 00 02 10 00
 		];
 		qcom,mdss-dsi-ce-on-command = [
 				29 01 00 00 00 00 2C CA 1D FC FC FC 00 C1 D3 37 00 3D 0E 13 00 1D FF 00 19 11 00 00 00 3F D5 A1 89 D8 9E 87 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -167,7 +171,7 @@
 		];
 
 
-		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-on-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-ce-on-command-state = "dsi_lp_mode";
 		qcom,mdss-dsi-ce-off-command-state = "dsi_lp_mode";
